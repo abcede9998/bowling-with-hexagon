@@ -5,65 +5,92 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var box1, pig1;
+var g1,g2;
 var backgroundImg,platform;
 var bird, slingShot;
+var b1,b2;
 
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
 }
 
 function setup(){
-    var canvas = createCanvas(1200,400);
+    var canvas = createCanvas(1200,900);
     engine = Engine.create();
     world = engine.world;
 
 
     ground = new Ground(600,height,1200,20);
-    platform = new Ground(150, 305, 300, 170);
+    g1 = new Ground(500,550,350,10)
+    g2 = new Ground(900,400,350,10)
+    strokeWeight(2);
+    stroke("black");
+    fill("blue");
+    box3 = new Box(500,500,50,70);
+    fill("red");
+    box4 = new Box(550,500,50,70);
+    box5 = new Box(600,500,50,70);
+    b6 = new Box(450,500,50,70);
+    b7 = new Box(400, 500, 50, 70);
+    b8 = new Box(350, 500,50,70);
+    b13 = new Box(650,500,50,70)
+    
+    b9 = new Box(550, 400,50,70);
+    b10 = new Box(500,400,50,70);
+    b11= new Box(450, 400,50,70);
+    b12= new Box(400, 400,50,70);
+    b14= new Box(600, 400,50,70);
 
-    box1 = new Box(700,320,70,70);
-    box2 = new Box(920,320,70,70);
-    pig1 = new Pig(810, 350);
-    log1 = new Log(810,260,300, PI/2);
+    b15=new Box( 550, 300,50, 70);
+    b16=new Box( 500, 300,50, 70);
+    b17=new Box( 450, 300,50, 70);
 
-    box3 = new Box(700,240,70,70);
-    box4 = new Box(920,240,70,70);
-    pig3 = new Pig(810, 220);
+    b18=new Box(500, 200, 50, 70)
 
-    log3 =  new Log(810,180,300, PI/2);
-
-    box5 = new Box(810,160,70,70);
-    log4 = new Log(760,120,150, PI/7);
-    log5 = new Log(870,120,150, -PI/7);
-
-    bird = new Bird(200,50);
+    bird = new Bird(200,450);
 
     //log6 = new Log(230,180,80, PI/2);
-    slingshot = new SlingShot(bird.body,{x:200, y:50});
+    slingshot = new SlingShot(bird.body,{x:200, y:450});
 }
 
 function draw(){
     background(backgroundImg);
     Engine.update(engine);
     strokeWeight(4);
-    box1.display();
-    box2.display();
+
+
     ground.display();
-    pig1.display();
-    log1.display();
+
 
     box3.display();
     box4.display();
-    pig3.display();
-    log3.display();
-
     box5.display();
-    log4.display();
-    log5.display();
+    b6.display();
+    b7.display();
+    b8.display();
+
+    b9.display();
+    b10.display();
+    b11.display();
+    b12.display();
+    b13.display();
+    b14.display();
+
+    b15.display();
+    b16.display();
+    b17.display();
+
+    b18.display();
+
+g1.display();
+g2.display();
+
+    
+
 
     bird.display();
-    platform.display();
-    //log6.display();
+
+
     slingshot.display();    
 }
 
